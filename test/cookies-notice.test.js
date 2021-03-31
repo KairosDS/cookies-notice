@@ -13,7 +13,7 @@ describe("cookies-notice", () => {
           `
           );
 
-    const base = el.shadowRoot.querySelector('.cookies-notice');
+    const base = el.shadowRoot.querySelector('.cookies');
 
     expect(base).not.to.be.null;
     });
