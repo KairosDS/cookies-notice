@@ -53,7 +53,7 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
       /**
        * Number atribute days of cookie duration
        * @property
-       * @type {Number}
+       * @type { Number }
        */
       daysExpiry: {
         type: Number,
@@ -72,7 +72,7 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
     this.secondParagraph = '';
     this.button = '';
     this.policyLink = {};
-    this.language = 'es';
+    this.language = null;
     this.daysExpiry = 730;
   }
 
@@ -106,25 +106,33 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
 
   render() {
     
-    const urlLInk = this.language && this.policyLink.href? `/${this.language}/${this.policyLink.href}` : `/${this.policyLink.href}` ;
+    const urlLInk = this.language === null ? `/${this.policyLink.href}`: `/${this.language}/${this.policyLink.href}`  ;
     return html`
       ${this.showPopup ? html`
-          <div class="cookies">  
-            <div class="cookies-content">
-              <p class="cookies-text">${this.data && this.firstParagraph}</p>
-              <p class="cookies-text">
+          <div class="cookies" part="cookie-general">  
+            <div class="cookies-content" part="cookie-content">
+              <p class="cookies-text" part="cookie-text">${this.data && this.firstParagraph}</p>
+              <p class="cookies-text" part="cookie-text">
                 ${this.data && this.secondParagraph}
                 <a
                   href="${urlLInk}" 
                   class="cookies-link"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   ${this.data && this.policyLink.content}
                 </a>
               </p>
             </div>
 
-            <button aria-label="Accept cookies" name="button" class="cookies-btn" @click="${this.handleSetCookie}">${this.data && this.button}</button>
+            <button 
+              aria-label="Accept cookies" 
+              name="button" 
+              class="cookies-btn" 
+              @click="${this.handleSetCookie}"
+              part="cookie-button"
+              >
+              ${this.data && this.button}
+            </button>
+
             <span class="cookies-close" @click="${this.handleCloseCookie}"></span> 
           </div>    
         ` : null}`;
