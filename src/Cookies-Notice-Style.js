@@ -4,7 +4,7 @@ export const CookiesNoticeStyles = css`
 
 :host {
   --line-height-text: var(--line-height, 28px ) 
-  --font-size-text: var(--base-font-size, 18px );
+  --font-size-text: var(--base-font-size, 16px );
   --background-cookies: var(--cookies-color, #ffffff)
   --background-button: var(--button-color, #ffffff)
   --text-color-cookies: var(--base-text, #000000);
@@ -32,8 +32,8 @@ export const CookiesNoticeStyles = css`
 
   .cookies-text {
       font-family: ‘avenir’, sans-serif;
-      font-size: 16px;
-      line-height: 27px;
+      font-size: var(--font-size-text);
+      line-height: --line-height-text;
       margin: 24px 0 19px 0; 
   }
 
@@ -68,6 +68,7 @@ export const CookiesNoticeStyles = css`
   } 
 
   @media all and (min-width: 768px) {
+
     .cookies {
       display:flex;
       flex-direction: row;
@@ -79,7 +80,7 @@ export const CookiesNoticeStyles = css`
     }
 
     .cookies-text {
-      font-size: 16px;
+      font-size: var(--font-size-text);
       line-height: 29px;
       padding: 0;
       margin: 8px 0;
@@ -91,7 +92,7 @@ export const CookiesNoticeStyles = css`
     }
 
     .cookies-link {
-      font-size: 16px;
+      font-size: var(--font-size-text);
     }
     
     .cookies-btn {
@@ -99,15 +100,18 @@ export const CookiesNoticeStyles = css`
       margin: 0;
       height: 50px;
     }
+
     .cookies-close {
       align-self:center;
       position: relative;
       top: 0;
       right: 0;
     }
+    
   }
 
   @media all and (min-width: 1200px) {
+
       .cookies {
         justify-content: center;
       }
@@ -123,6 +127,7 @@ export const CookiesNoticeStyles = css`
         padding-top: 2px 0;
         width: 195px;
       }
+
       .cookies-close {
         align-self:center;
         cursor: pointer;
@@ -130,6 +135,7 @@ export const CookiesNoticeStyles = css`
         top: 0;
         right: 0;
       }
+
     }
 
 `
