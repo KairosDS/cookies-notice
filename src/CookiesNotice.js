@@ -48,7 +48,16 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
        */
       language: {
         type: String,
-        atribute: 'lenguage',
+        atribute: 'language',
+      },
+      /**
+       * Number atribute days of cookie duration
+       * @property
+       * @type {Number}
+       */
+      daysExpiry: {
+        type: Number,
+        attribute: 'days-expiry',
       },
     };
   }
@@ -64,6 +73,7 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
     this.button = '';
     this.policyLink = {};
     this.language = 'es';
+    this.daysExpiry = 730;
   }
 
   connectedCallback() {
@@ -76,16 +86,16 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
     this.policyLink = dataCookies[3];
   }
 
-  /* eslint-disable-next-line */
-  createCookie() {
+  
+  createCookie(expire) {
     const expirationDate = new Date();
-    expirationDate.setMonth(expirationDate.getMonth() + 12);
+    expirationDate.setTime(expirationDate.getTime() + (expire * 24 * 60 * 60 * 1000));
     const baseDomain = window.location.hostname;
     document.cookie = `${PERMANENT_COOKIE_NAME}=true; expires=${expirationDate}; domain=${baseDomain}; path=/`;
   }
 
   handleSetCookie() {
-    this.createCookie();
+    this.createCookie(this.daysExpiry);
     this.showPopup = false;
   }
 
@@ -95,6 +105,7 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
   }
 
   render() {
+    
     const urlLInk = `/${this.language}/${this.policyLink.href}`;
     return html`
       ${this.showPopup ? html`

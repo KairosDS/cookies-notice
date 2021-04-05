@@ -1,13 +1,24 @@
 import { css } from 'lit-element';
 
 export const CookiesNoticeStyles = css`
+
+:host {
+  --line-height-text: var(--line-height, 28px ) 
+  --font-size-text: var(--base-font-size, 18px );
+  --background-cookies: var(--cookies-color, #ffffff)
+  --background-button: var(--button-color, #ffffff)
+  --text-color-cookies: var(--base-text, #000000);
+  --text-color-buttom: var(--buttom-text, #000000);
+}
+
+
 .cookies {
     box-sizing: border-box;
     display: flex;
     flex-direction:column;
     padding:0 15px;
-    background-color:#464545;
-    color:#ffffff;
+    background-color: var(--cookies-color);
+    color:var(--base-text);
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -53,7 +64,7 @@ export const CookiesNoticeStyles = css`
   }
 
   .cookies-close:after {
-    content:url('/assets/images/close-icon-white.png');
+    content:url('/assets/close-icon-white.png');
   } 
 
   @media all and (min-width: 768px) {
