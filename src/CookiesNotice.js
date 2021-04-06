@@ -110,7 +110,7 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
                     `${window.location.pathname}/${this.language}/${this.policyLink.href}`  ;
     return html`
       ${this.showPopup ? html`
-          <div class="cookies" part="cookie-general">  
+          <div class="cookies">  
             <div class="cookies-content" part="cookie-content">
               <p class="cookies-text" part="cookie-text">${this.data && this.firstParagraph}</p>
               <p class="cookies-text" part="cookie-text">
