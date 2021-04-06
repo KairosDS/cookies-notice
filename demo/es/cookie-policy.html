@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Cookies-notices demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script type="module" src="../cookies-notice.js"></script>
+    <style>
+        .blocks {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            white-space: normal;
+        }
+
+        .code {
+            padding: 20px;
+            color: #FFF;
+            background: #000;
+        }
+
+        :root{
+            --cookies-color: rgb(128, 0, 0);
+            --base-text: black;
+        }
+
+        .attributes {
+            padding-left: 20px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <main>
+            <h3>Basic Cookies-notice Demo</h3>
+            <div class="blocks">
+                <pre class="block code">
+                    <code>
+                        &lt;cookies-notice&gt;&lt;cookies-notice&gt;
+                    </code>
+                </pre>
+            </div>
+            <div>
+                <h1>Cookies-notice</h1>
+                <h2>Politica de Cookies</h2>
+                <h3>Ejemplo de página que envia  desde el index.html 
+                    a un enlace desde el componente "cookies-notice"</h3>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
