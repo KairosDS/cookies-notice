@@ -27,20 +27,14 @@
         }
 
         :root{
-            --cookies-color: rgb(128, 0, 0);
-            --base-text: black;
+            --cookies-color: grey;
+            --base-text: white;
         }
 
         .attributes {
             padding-left: 20px;
         }
 
-        cookies-notice::part(cookie-button){
-            --background-button: red;
-            background-color: var(--background-button);
-            color: green;
-        }
-        
 
     </style>
 </head>
@@ -71,7 +65,9 @@
                     <p>Si continúa utilizando este sitio asumiremos que está de acuerdo.</p>
                     <button>aceptar y cerrar</button>
                     <a href="cookie-policy.html"
-                    aria-label="Abre en la misma ventana, politica de privadidad" target="_self" rel="noopener noreferrer">Política de privacidad</a>
+                    aria-label="Abre en la misma ventana, politica de privadidad" 
+                    target="_self" 
+                    rel="noopener noreferrer">Política de privacidad</a>
                 </div>
             </cookies-notice>
 

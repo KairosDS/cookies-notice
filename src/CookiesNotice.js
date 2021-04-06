@@ -106,7 +106,8 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
 
   render() {
     
-    const urlLInk = this.language === null ? `/${this.policyLink.href}`: `/${this.language}/${this.policyLink.href}`  ;
+    const urlLInk = this.language === null ? `${window.location.pathname}/${this.policyLink.href}`: 
+                    `${window.location.pathname}/${this.language}/${this.policyLink.href}`  ;
     return html`
       ${this.showPopup ? html`
           <div class="cookies" part="cookie-general">  
@@ -116,6 +117,7 @@ export class CookiesNotice extends HTMLChildrenMixin(LitElement) {
                 ${this.data && this.secondParagraph}
                 <a
                   href="${urlLInk}" 
+                  role="link"
                   class="cookies-link"
                   rel="noopener noreferrer">
                   ${this.data && this.policyLink.content}
